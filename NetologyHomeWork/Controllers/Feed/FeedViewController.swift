@@ -45,7 +45,7 @@ class FeedViewController: UIViewController {
         view.addSubview(postButton)
         
         NSLayoutConstraint.activate([
-            postButton.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant: -90),
+            postButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor,constant: -50),
             postButton.leadingAnchor.constraint(equalTo: view.leadingAnchor,constant: 60),
             postButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -60)
         ])

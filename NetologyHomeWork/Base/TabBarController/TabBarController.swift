@@ -33,7 +33,7 @@ class TabBarController: UITabBarController {
         let feedViewController = FeedViewController()
         feedViewController.title = "Feed"
         feedViewController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "doc.richtext"), tag: 0)
-        return UINavigationController(rootViewController: feedViewController)
+        return NavBarController(rootViewController: feedViewController)
     }
     
     private func createProfileViewController() -> UINavigationController {
@@ -42,7 +42,7 @@ class TabBarController: UITabBarController {
         profileViewController.title = "Profile"
         profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
 
-        return UINavigationController(rootViewController: profileViewController)
+        return NavBarController(rootViewController: profileViewController)
     }
 }
 
