@@ -46,7 +46,7 @@ class InfoViewController: UIViewController {
         let okAction = UIAlertAction(title: "OK", style: .default, handler: { _ in print("An \"OK\" action was selected") })
         alertController.addAction(okAction)
         
-        let canselAction = UIAlertAction(title: "Cansel", style: .default, handler: { _ in print("An \"Cansel\" action was selected") })
+        let canselAction = UIAlertAction(title: "Cancel", style: .default, handler: { _ in print("An \"Cansel\" action was selected") })
         alertController.addAction(canselAction)
         
         present(alertController,animated: true)
