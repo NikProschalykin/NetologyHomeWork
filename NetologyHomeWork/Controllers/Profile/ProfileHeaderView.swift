@@ -10,7 +10,8 @@ import UIKit
 class ProfileHeaderView: UIView {
 
     private lazy var profileImageView: UIImageView = {
-        let imageView = UIImageView(image: UIImage(named: "coolCat2"))
+        let imageView = UIImageView()
+        imageView.image = UIImage(named: "coolCat2")
         
         imageView.frame.size = CGSize(width: 120, height: 120)
         imageView.layer.cornerRadius = imageView.frame.size.height / 2
@@ -79,7 +80,7 @@ class ProfileHeaderView: UIView {
         return button
     }()
     
-    private var statusText: String? = ""
+    private var statusText: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -128,14 +129,18 @@ class ProfileHeaderView: UIView {
     }
     
     @objc func setStatusButtonAction() {
-        statusLabel.text = statusText
+        if !statusText.isEmpty {
+            statusLabel.text = statusText
+        }
+
         print(statusLabel.text ?? "no status")
         
         
     }
 
     @objc func statusTextFieldAction(_ textField: UITextField){
-        statusText = textField.text
+            statusText = textField.text ?? ""
+        
     }
     
 }

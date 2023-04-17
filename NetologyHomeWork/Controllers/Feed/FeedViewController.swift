@@ -63,11 +63,10 @@ class FeedViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        setupInitLayout()
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
+    private func setupInitLayout(){
         NSLayoutConstraint.activate([
         
             feedStackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
