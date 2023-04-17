@@ -55,7 +55,7 @@ class ProfileHeaderView: UIView {
         textField.layer.cornerRadius = 12
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
-        textField.textAlignment = .left
+        textField.textAlignment = .natural
         textField.autocorrectionType = .no
         textField.addTarget(self, action: #selector(statusTextFieldAction), for: .editingChanged)
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -121,7 +121,7 @@ class ProfileHeaderView: UIView {
             
             setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
-            setStatusButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 40),
+            setStatusButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 18),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50)
             
         ])
