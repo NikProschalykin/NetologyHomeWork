@@ -47,6 +47,8 @@ class ProfileViewController: UIViewController {
 
     private func configure() {
         //view.backgroundColor = UIColor(hexString: "#F8F9F9")
+        title = "Profile"
+        
         profileHeader.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileHeader)
         view.addSubview(someBottomButton)

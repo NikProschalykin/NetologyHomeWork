@@ -23,9 +23,8 @@ class TabBarController: UITabBarController {
         UITabBar.appearance().backgroundColor = .white
         
         let feedViewController = createFeedViewController()
-        let profileController = createProfileViewController()
-        
-        setViewControllers([feedViewController,profileController], animated: false)
+        let logInViewController = createProfileViewController()
+        setViewControllers([feedViewController,logInViewController], animated: false)
     }
     
     
@@ -37,12 +36,12 @@ class TabBarController: UITabBarController {
     }
     
     private func createProfileViewController() -> UINavigationController {
-        let profileViewController = ProfileViewController()
+        let logInViewController = LogInViewController()
 
-        profileViewController.title = "Profile"
-        profileViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
+        logInViewController.title = "Log in"
+        logInViewController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle"), tag: 1)
 
-        return NavBarController(rootViewController: profileViewController)
+        return NavBarController(rootViewController: logInViewController)
     }
 }
 
