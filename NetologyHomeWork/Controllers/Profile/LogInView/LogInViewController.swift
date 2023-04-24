@@ -13,6 +13,16 @@ class LogInViewController: UIViewController {
     private var loginText = ""
     private var passwordText = ""
     
+    private let separatorStackView: UIView = {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: 3))
+        
+        view.backgroundColor = .lightGray
+        
+        return view
+    }()
+
+    
+    
     //лого ВК
     private lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
@@ -28,9 +38,16 @@ class LogInViewController: UIViewController {
         var stackView = UIStackView()
         
         stackView.axis = .vertical
-        stackView.distribution = .fillEqually
+        stackView.distribution = .fillProportionally
         stackView.spacing = 0
         stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.layer.cornerRadius = 10
+        stackView.layer.borderColor = UIColor.lightGray.cgColor
+        stackView.layer.borderWidth = 0.5
+        
+        
+        
+        
         
         return stackView
     }()
@@ -45,13 +62,13 @@ class LogInViewController: UIViewController {
         textField.backgroundColor = .systemGray6
         textField.autocapitalizationType = .none
         textField.placeholder = "Email or phone"
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 0.5
-        textField.layer.cornerRadius = 10
-        textField.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(logTextFieldChanged), for: .editingChanged)
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        textField.leftViewMode = .always
+        textField.leftView = spacerView
         
         return textField
     }()
@@ -72,13 +89,13 @@ class LogInViewController: UIViewController {
         textField.autocapitalizationType = .none
         textField.placeholder = "Password"
         textField.isSecureTextEntry = true
-        textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.borderWidth = 0.5
-        textField.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-        textField.layer.cornerRadius = 10
         textField.delegate = self
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.addTarget(self, action: #selector(PaswdTextFieldChanged), for: .editingChanged)
+        
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        textField.leftViewMode = .always
+        textField.leftView = spacerView
         
         return textField
     }()
@@ -172,7 +189,7 @@ class LogInViewController: UIViewController {
     
     @objc private func keyBoardShow(notification: NSNotification){
         if let keyBoardSize: CGRect = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            print(keyBoardSize)
+    
             scrollView.contentInset.bottom = keyBoardSize.height
             scrollView.verticalScrollIndicatorInsets = UIEdgeInsets(top: 0,
                                                                     left: 0,
@@ -221,8 +238,7 @@ class LogInViewController: UIViewController {
         
         //layout остальных UI-элементов
         [textFieldsStackView,logoImageView,logInButton].forEach({ contentView.addSubview($0) })
-        textFieldsStackView.addArrangedSubview(loginTextField)
-        textFieldsStackView.addArrangedSubview(passwordTextField)
+        [loginTextField,separatorStackView,passwordTextField].forEach({ textFieldsStackView.addArrangedSubview($0) })
         
         NSLayoutConstraint.activate([
             
@@ -230,6 +246,8 @@ class LogInViewController: UIViewController {
             logoImageView.widthAnchor.constraint(equalToConstant: 100),
             logoImageView.topAnchor.constraint(equalTo: contentView.topAnchor,constant: 120),
             logoImageView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            separatorStackView.heightAnchor.constraint(equalToConstant: 0.5),
             
             textFieldsStackView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
             textFieldsStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
