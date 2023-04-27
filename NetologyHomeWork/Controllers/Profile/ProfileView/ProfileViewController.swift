@@ -25,11 +25,11 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        layout()
         
     }
     
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
+    private func layout() {
         
         NSLayoutConstraint.activate([
             profileHeader.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
@@ -42,11 +42,13 @@ class ProfileViewController: UIViewController {
             someBottomButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0),
             
         ])
-        
     }
+
 
     private func configure() {
         //view.backgroundColor = UIColor(hexString: "#F8F9F9")
+        title = "Profile"
+        
         profileHeader.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(profileHeader)
         view.addSubview(someBottomButton)
