@@ -45,10 +45,7 @@ class LogInViewController: UIViewController {
         stackView.layer.borderColor = UIColor.lightGray.cgColor
         stackView.layer.borderWidth = 0.5
         
-        
-        
-        
-        
+ 
         return stackView
     }()
     
