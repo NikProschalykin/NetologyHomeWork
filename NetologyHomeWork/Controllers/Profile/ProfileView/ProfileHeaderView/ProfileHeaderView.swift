@@ -61,6 +61,10 @@ class ProfileHeaderView: UIView {
         textField.addTarget(self, action: #selector(statusTextFieldAction), for: .editingChanged)
         textField.translatesAutoresizingMaskIntoConstraints = false
         
+        let spacerView = UIView(frame:CGRect(x:0, y:0, width:10, height:10))
+        textField.leftViewMode = .always
+        textField.leftView = spacerView
+        
         return textField
     }()
     
@@ -99,7 +103,7 @@ class ProfileHeaderView: UIView {
         self.addSubview(statusTextField)
         self.addSubview(setStatusButton)
         self.addSubview(statusLabel)
-    
+        
         NSLayoutConstraint.activate([
             
             profileImageView.topAnchor.constraint(equalTo: self.topAnchor,constant: 16),
@@ -123,7 +127,8 @@ class ProfileHeaderView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16),
             setStatusButton.topAnchor.constraint(equalTo: profileImageView.bottomAnchor, constant: 18),
-            setStatusButton.heightAnchor.constraint(equalToConstant: 50)
+            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: self.bottomAnchor,constant: -8),
             
         ])
     }

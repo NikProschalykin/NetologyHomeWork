@@ -19,3 +19,10 @@ extension UIView {
     addSubview(separator)
     }
 }
+
+// Присвоение идентификатора к UIView
+extension UIView {
+    static var identifier: String {
+        String(describing: self)
+    }
+}

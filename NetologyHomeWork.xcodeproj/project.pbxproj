@@ -11,6 +11,9 @@
 		7E21523B29E1E97F0045C9AD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E21523A29E1E97F0045C9AD /* PostViewController.swift */; };
 		7E21523D29E1F7EC0045C9AD /* PostStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E21523C29E1F7EC0045C9AD /* PostStruct.swift */; };
 		7E21524029E1FCD60045C9AD /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E21523F29E1FCD60045C9AD /* InfoViewController.swift */; };
+		7E26280029FAC5D800C93572 /* ProfilePostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E2627FF29FAC5D800C93572 /* ProfilePostModel.swift */; };
+		7E26280229FAF4EF00C93572 /* UIViewController + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26280129FAF4EF00C93572 /* UIViewController + ext.swift */; };
+		7E26280429FAF7E700C93572 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E26280329FAF7E700C93572 /* PostTableViewCell.swift */; };
 		7E3997CA29E04DB7008C0F57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3997C929E04DB7008C0F57 /* AppDelegate.swift */; };
 		7E3997CC29E04DB7008C0F57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E3997CB29E04DB7008C0F57 /* SceneDelegate.swift */; };
 		7E3997D329E04DB9008C0F57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7E3997D229E04DB9008C0F57 /* Assets.xcassets */; };
@@ -29,6 +32,9 @@
 		7E21523A29E1E97F0045C9AD /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		7E21523C29E1F7EC0045C9AD /* PostStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostStruct.swift; sourceTree = "<group>"; };
 		7E21523F29E1FCD60045C9AD /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		7E2627FF29FAC5D800C93572 /* ProfilePostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePostModel.swift; sourceTree = "<group>"; };
+		7E26280129FAF4EF00C93572 /* UIViewController + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + ext.swift"; sourceTree = "<group>"; };
+		7E26280329FAF7E700C93572 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		7E3997C629E04DB7008C0F57 /* NetologyHomeWork.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetologyHomeWork.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E3997C929E04DB7008C0F57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E3997CB29E04DB7008C0F57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +92,54 @@
 				7E21523F29E1FCD60045C9AD /* InfoViewController.swift */,
 			);
 			path = InfoViewController;
+			sourceTree = "<group>";
+		};
+		7E26280529FAF7EE00C93572 /* TableViewCells + Header */ = {
+			isa = PBXGroup;
+			children = (
+				7E26280329FAF7E700C93572 /* PostTableViewCell.swift */,
+			);
+			path = "TableViewCells + Header";
+			sourceTree = "<group>";
+		};
+		7E26280629FB04C500C93572 /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7E3997DF29E050A8008C0F57 /* ProfileViewController.swift */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		7E26280729FB04D300C93572 /* ProfileHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				7E8BB00F29E99D98000A308D /* ProfileHeaderView.swift */,
+			);
+			path = ProfileHeaderView;
+			sourceTree = "<group>";
+		};
+		7E26280829FB0B9F00C93572 /* UIColor + ext */ = {
+			isa = PBXGroup;
+			children = (
+				7EDA4F3829E061BD00EA103E /* UIColor+ext.swift */,
+			);
+			path = "UIColor + ext";
+			sourceTree = "<group>";
+		};
+		7E26280929FB0BB300C93572 /* UIView + ext */ = {
+			isa = PBXGroup;
+			children = (
+				7E8BB01429E9BB3A000A308D /* UIView+ext.swift */,
+			);
+			path = "UIView + ext";
+			sourceTree = "<group>";
+		};
+		7E26280A29FB0BC200C93572 /* UIViewController + ext */ = {
+			isa = PBXGroup;
+			children = (
+				7E26280129FAF4EF00C93572 /* UIViewController + ext.swift */,
+			);
+			path = "UIViewController + ext";
 			sourceTree = "<group>";
 		};
 		7E3997BD29E04DB7008C0F57 = {
@@ -166,8 +220,9 @@
 		7E7B896629F2B04400646E9F /* ProfileView */ = {
 			isa = PBXGroup;
 			children = (
-				7E3997DF29E050A8008C0F57 /* ProfileViewController.swift */,
-				7E8BB00F29E99D98000A308D /* ProfileHeaderView.swift */,
+				7E26280629FB04C500C93572 /* ProfileViewController */,
+				7E26280729FB04D300C93572 /* ProfileHeaderView */,
+				7E26280529FAF7EE00C93572 /* TableViewCells + Header */,
 			);
 			path = ProfileView;
 			sourceTree = "<group>";
@@ -180,13 +235,23 @@
 			path = LogInView;
 			sourceTree = "<group>";
 		};
-		7E8BB01329E9BB1D000A308D /* extensions */ = {
+		7E7B896F29FAC42D00646E9F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7EDA4F3829E061BD00EA103E /* UIColor+ext.swift */,
-				7E8BB01429E9BB3A000A308D /* UIView+ext.swift */,
+				7E21523C29E1F7EC0045C9AD /* PostStruct.swift */,
+				7E2627FF29FAC5D800C93572 /* ProfilePostModel.swift */,
 			);
-			path = extensions;
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7E8BB01329E9BB1D000A308D /* extensions + Model */ = {
+			isa = PBXGroup;
+			children = (
+				7E26280829FB0B9F00C93572 /* UIColor + ext */,
+				7E26280929FB0BB300C93572 /* UIView + ext */,
+				7E26280A29FB0BC200C93572 /* UIViewController + ext */,
+			);
+			path = "extensions + Model";
 			sourceTree = "<group>";
 		};
 		7E8BB01629E9BBFD000A308D /* NavBarController */ = {
@@ -200,8 +265,8 @@
 		7EDA4F3629E0616800EA103E /* resources + extensions */ = {
 			isa = PBXGroup;
 			children = (
-				7E8BB01329E9BB1D000A308D /* extensions */,
-				7E21523C29E1F7EC0045C9AD /* PostStruct.swift */,
+				7E8BB01329E9BB1D000A308D /* extensions + Model */,
+				7E7B896F29FAC42D00646E9F /* Models */,
 			);
 			path = "resources + extensions";
 			sourceTree = "<group>";
@@ -280,11 +345,14 @@
 				7E3997CA29E04DB7008C0F57 /* AppDelegate.swift in Sources */,
 				7E3997DE29E0509A008C0F57 /* FeedViewController.swift in Sources */,
 				7E21523B29E1E97F0045C9AD /* PostViewController.swift in Sources */,
+				7E26280229FAF4EF00C93572 /* UIViewController + ext.swift in Sources */,
 				7E8BB01229E9BA8F000A308D /* NavBarController.swift in Sources */,
 				7E3997E029E050A8008C0F57 /* ProfileViewController.swift in Sources */,
 				7E7B896A29F2B09600646E9F /* LogInViewController.swift in Sources */,
 				7E21524029E1FCD60045C9AD /* InfoViewController.swift in Sources */,
 				7E21523829E1E86F0045C9AD /* TabBarController.swift in Sources */,
+				7E26280029FAC5D800C93572 /* ProfilePostModel.swift in Sources */,
+				7E26280429FAF7E700C93572 /* PostTableViewCell.swift in Sources */,
 				7E3997CC29E04DB7008C0F57 /* SceneDelegate.swift in Sources */,
 				7E8BB01029E99D98000A308D /* ProfileHeaderView.swift in Sources */,
 				7E21523D29E1F7EC0045C9AD /* PostStruct.swift in Sources */,
