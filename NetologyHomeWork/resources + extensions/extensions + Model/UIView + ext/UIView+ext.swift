@@ -7,7 +7,9 @@
 
 import UIKit
 
+
 extension UIView {
+
     func addBottomBorder(with color: UIColor, height: CGFloat) {
         let separator = UIView()
         separator.backgroundColor = color
@@ -20,9 +22,11 @@ extension UIView {
     }
 }
 
-// Присвоение идентификатора к UIView
+// MARK: - Присвоение идентификатора к UIView
+
 extension UIView {
     static var identifier: String {
         String(describing: self)
     }
 }
+
