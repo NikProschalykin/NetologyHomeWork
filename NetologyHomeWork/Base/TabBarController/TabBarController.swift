@@ -24,7 +24,7 @@ class TabBarController: UITabBarController {
         
         let feedViewController = createFeedViewController()
         let logInViewController = createProfileViewController()
-        setViewControllers([feedViewController,logInViewController], animated: false)
+        setViewControllers([feedViewController, logInViewController], animated: false)
     }
     
     

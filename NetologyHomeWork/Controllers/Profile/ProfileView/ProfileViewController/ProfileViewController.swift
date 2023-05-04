@@ -10,6 +10,7 @@ import UIKit
 final class ProfileViewController: UIViewController {
 
     public static var postModels = ProfilePostModel.makeMockModel()
+    public static var photosSliderModel = ProfilePhotosSliderModel.makeMockModel()
     
     
     private lazy var profileTableView: UITableView = {
@@ -19,6 +20,8 @@ final class ProfileViewController: UIViewController {
         tableView.delegate = self
         
         tableView.register(PostTableViewCell.self, forCellReuseIdentifier: PostTableViewCell.identifier)
+        tableView.register(ProfilePhotosSliderTableViewCell.self, forCellReuseIdentifier: ProfilePhotosSliderTableViewCell.identifier)
+        
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
         return tableView
@@ -48,9 +51,7 @@ final class ProfileViewController: UIViewController {
 
 
     private func configure() {
-        //view.backgroundColor = UIColor(hexString: "#F8F9F9")
+        view.backgroundColor = UIColor(hexString: "#F8F9F9")
         title = "Profile"
-        
-        
     }
 }
