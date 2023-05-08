@@ -15,7 +15,6 @@ final class ProfileViewController: UIViewController {
     
     private lazy var profileTableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -32,7 +31,6 @@ final class ProfileViewController: UIViewController {
         super.viewDidLoad()
         configure()
         layout()
-        
     }
     
     private func layout() {
