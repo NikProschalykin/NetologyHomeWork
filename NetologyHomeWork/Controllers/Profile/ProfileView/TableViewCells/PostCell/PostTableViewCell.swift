@@ -9,6 +9,7 @@ import UIKit
 
 final class PostTableViewCell: UITableViewCell {
     
+    
     private lazy var contentCellView: UIView = {
         let view = UIView()
         
@@ -70,6 +71,16 @@ final class PostTableViewCell: UITableViewCell {
         return image
     }()
     
+    private lazy var heartImageView: UIImageView = {
+        let imageView = UIImageView(image: UIImage(systemName: "heart.fill"))
+        
+        imageView.tintColor = .red
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.isHidden = true
+        
+        return imageView
+    }()
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         layout()
@@ -89,23 +100,34 @@ final class PostTableViewCell: UITableViewCell {
     }
     
     func setupCell(model: ProfilePostModel) {
+        
         cellImage.image = UIImage(named: model.image)
         authorLabel.text = model.author
         descriptionLabel.text = model.description
         viewsLabel.text = "Views: \(String(model.views))"
         likesLabel.text = "Likes: \(String(model.likes))"
-        
+        if model.isLiked {
+            likesLabel.textColor = .red
+            leadingLikes.constant = 40
+            heartImageView.isHidden = false
+        }  else {
+            likesLabel.textColor = .black
+            leadingLikes.constant = 16
+            heartImageView.isHidden = true
+        }
     }
     
+    private var leadingLikes = NSLayoutConstraint()
     
     private func layout() {
         
-        [contentCellView, cellImage, viewsLabel, authorLabel, descriptionLabel, likesLabel].forEach({ contentView.addSubview($0) })
+        [contentCellView, cellImage, viewsLabel, authorLabel, descriptionLabel, likesLabel,heartImageView].forEach({ contentView.addSubview($0) })
         
         let viewInset: CGFloat = 8
         let topBottomInset: CGFloat = 8
         let leadingTrailingInset: CGFloat = 16
         let imageWidth: CGFloat = UIScreen.main.bounds.width
+        leadingLikes = likesLabel.leadingAnchor.constraint(equalTo: contentCellView.leadingAnchor, constant: leadingTrailingInset)
         
         NSLayoutConstraint.activate([
         
@@ -135,12 +157,17 @@ final class PostTableViewCell: UITableViewCell {
             //likesLabel
             likesLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: topBottomInset * 2),
             likesLabel.bottomAnchor.constraint(equalTo: contentCellView.bottomAnchor, constant: -topBottomInset),
-            likesLabel.leadingAnchor.constraint(equalTo: contentCellView.leadingAnchor, constant: leadingTrailingInset),
+            leadingLikes,
             
             //viewsLabel
             viewsLabel.topAnchor.constraint(equalTo: likesLabel.topAnchor),
             viewsLabel.bottomAnchor.constraint(equalTo: likesLabel.bottomAnchor),
             viewsLabel.trailingAnchor.constraint(equalTo: contentCellView.trailingAnchor, constant: -leadingTrailingInset),
+            
+            //heartImageView
+            heartImageView.leadingAnchor.constraint(equalTo: contentCellView.leadingAnchor, constant: leadingTrailingInset),
+            heartImageView.topAnchor.constraint(equalTo: likesLabel.topAnchor),
+            heartImageView.bottomAnchor.constraint(equalTo: likesLabel.bottomAnchor),
 
         ])
     }

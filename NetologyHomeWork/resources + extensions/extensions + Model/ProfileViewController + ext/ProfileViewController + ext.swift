@@ -47,6 +47,16 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
             if indexPath.section == 0 {
                 navigationController?.pushViewController(PhotosViewController(), animated: true)
             }
+        else {
+            ProfileViewController.postModels[indexPath.section-1][indexPath.row].views += 1
+            
+            let vc = PostCellViewController()
+            vc.indexPath = indexPath
+            vc.model = ProfileViewController.postModels[indexPath.section-1][indexPath.row]
+            vc.delegate = self
+            self.present(vc,animated: true)
+            tableView.reloadData()
+            }
         }
     
 //MARK: - UITableViewDelegate

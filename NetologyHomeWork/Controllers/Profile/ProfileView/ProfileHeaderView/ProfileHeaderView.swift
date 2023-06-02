@@ -276,6 +276,13 @@ class ProfileHeaderView: UIView {
     @objc func setStatusButtonAction() {
         if !statusText.isEmpty {
             statusLabel.text = statusText
+            statusTextField.text = nil
+        } else {
+            let alertController = UIAlertController(title: "Empty status text!", message: "Status entry field should not be empty", preferredStyle: .alert)
+            let cancelAction = UIAlertAction(title: "Cancel", style: .default)
+            alertController.addAction(cancelAction)
+            
+            window!.rootViewController?.present(alertController, animated: true)
         }
         print(statusLabel.text ?? "no status")
     }

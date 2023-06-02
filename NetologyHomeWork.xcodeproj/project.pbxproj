@@ -33,6 +33,9 @@
 		7E8BB01229E9BA8F000A308D /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8BB01129E9BA8F000A308D /* NavBarController.swift */; };
 		7E8BB01529E9BB3A000A308D /* UIView+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8BB01429E9BB3A000A308D /* UIView+ext.swift */; };
 		7EDA4F3929E061BD00EA103E /* UIColor+ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA4F3829E061BD00EA103E /* UIColor+ext.swift */; };
+		7EDE48592A25FA0B00A923EB /* String + ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE48582A25FA0B00A923EB /* String + ext.swift */; };
+		7EDE485C2A28A66300A923EB /* PostCellDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE485B2A28A66300A923EB /* PostCellDelegateProtocol.swift */; };
+		7EDE485E2A28AD9A00A923EB /* PostCellViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EDE485D2A28AD9A00A923EB /* PostCellViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +67,9 @@
 		7E8BB01129E9BA8F000A308D /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		7E8BB01429E9BB3A000A308D /* UIView+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ext.swift"; sourceTree = "<group>"; };
 		7EDA4F3829E061BD00EA103E /* UIColor+ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+ext.swift"; sourceTree = "<group>"; };
+		7EDE48582A25FA0B00A923EB /* String + ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + ext.swift"; sourceTree = "<group>"; };
+		7EDE485B2A28A66300A923EB /* PostCellDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellDelegateProtocol.swift; sourceTree = "<group>"; };
+		7EDE485D2A28AD9A00A923EB /* PostCellViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,7 +243,9 @@
 		7E4BAF6229FEFCCE0001F88A /* PostCell */ = {
 			isa = PBXGroup;
 			children = (
+				7EDE485A2A28A64300A923EB /* PostCellDelegate */,
 				7E26280329FAF7E700C93572 /* PostTableViewCell.swift */,
+				7EDE485F2A28ADA600A923EB /* PostCellViewController */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -341,6 +349,7 @@
 		7E8BB01329E9BB1D000A308D /* extensions + Model */ = {
 			isa = PBXGroup;
 			children = (
+				7EDE48572A25F9E200A923EB /* String + ext */,
 				7E26280829FB0B9F00C93572 /* UIColor + ext */,
 				7E26280929FB0BB300C93572 /* UIView + ext */,
 				7E4BAF6C29FF18CB0001F88A /* ProfilePhotosSliderTableViewCell+ ext */,
@@ -365,6 +374,30 @@
 				7E7B896F29FAC42D00646E9F /* Models */,
 			);
 			path = "resources + extensions";
+			sourceTree = "<group>";
+		};
+		7EDE48572A25F9E200A923EB /* String + ext */ = {
+			isa = PBXGroup;
+			children = (
+				7EDE48582A25FA0B00A923EB /* String + ext.swift */,
+			);
+			path = "String + ext";
+			sourceTree = "<group>";
+		};
+		7EDE485A2A28A64300A923EB /* PostCellDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				7EDE485B2A28A66300A923EB /* PostCellDelegateProtocol.swift */,
+			);
+			path = PostCellDelegate;
+			sourceTree = "<group>";
+		};
+		7EDE485F2A28ADA600A923EB /* PostCellViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7EDE485D2A28AD9A00A923EB /* PostCellViewController.swift */,
+			);
+			path = PostCellViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -443,6 +476,7 @@
 				7E4BAF6929FF177E0001F88A /* PhotosGalleryModel.swift in Sources */,
 				7E3997CA29E04DB7008C0F57 /* AppDelegate.swift in Sources */,
 				7E3997DE29E0509A008C0F57 /* FeedViewController.swift in Sources */,
+				7EDE485E2A28AD9A00A923EB /* PostCellViewController.swift in Sources */,
 				7E21523B29E1E97F0045C9AD /* PostViewController.swift in Sources */,
 				7E8BB01229E9BA8F000A308D /* NavBarController.swift in Sources */,
 				7E4BAF6F29FF19970001F88A /* PhotosCollectionViewCell.swift in Sources */,
@@ -451,6 +485,7 @@
 				7E4BAF6529FF17080001F88A /* PhotosViewController.swift in Sources */,
 				7E21524029E1FCD60045C9AD /* InfoViewController.swift in Sources */,
 				7E21523829E1E86F0045C9AD /* TabBarController.swift in Sources */,
+				7EDE485C2A28A66300A923EB /* PostCellDelegateProtocol.swift in Sources */,
 				7E4BAF7329FF226E0001F88A /* PhotosViewController + ext.swift in Sources */,
 				7E26280029FAC5D800C93572 /* ProfilePostModel.swift in Sources */,
 				7E4BAF6029FEFC910001F88A /* ProfilePhotosSladerCollectionViewCell.swift in Sources */,
@@ -459,6 +494,7 @@
 				7E8BB01029E99D98000A308D /* ProfileHeaderView.swift in Sources */,
 				7E21523D29E1F7EC0045C9AD /* PostStruct.swift in Sources */,
 				7E4BAF6B29FF18A10001F88A /* ProfilePhotosSliderTableViewCell + ext.swift in Sources */,
+				7EDE48592A25FA0B00A923EB /* String + ext.swift in Sources */,
 				7E4BAF5C29FEF69B0001F88A /* ProfilePhotosSliderModel.swift in Sources */,
 				7EDA4F3929E061BD00EA103E /* UIColor+ext.swift in Sources */,
 			);
