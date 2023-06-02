@@ -21,6 +21,7 @@ extension ProfilePhotosSliderTableViewCell: UICollectionViewDataSource, UICollec
         return cell
     }
     
+    
 // MARK: - UICollectionViewDelegateFlowLayout
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -29,6 +30,7 @@ extension ProfilePhotosSliderTableViewCell: UICollectionViewDataSource, UICollec
         
         return CGSize(width: width, height: width)
     }
+    
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         8

@@ -7,7 +7,14 @@
 
 import UIKit
 
-final class ProfileViewController: UIViewController {
+final class ProfileViewController: UIViewController, PostCellDelegate {
+
+    
+    func likeTapped() {
+        profileTableView.reloadData()
+        print("data reload")
+    }
+    
 
     public static var postModels = ProfilePostModel.makeMockModel()
     public static var photosSliderModel = ProfilePhotosSliderModel.makeMockModel()

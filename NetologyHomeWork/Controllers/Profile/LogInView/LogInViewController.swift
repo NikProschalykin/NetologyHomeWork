@@ -10,6 +10,7 @@ import UIKit
 class LogInViewController: UIViewController {
 
     private let notificationCenter = NotificationCenter.default
+    private let defaultAccountData = ("admin@ad.com", "paswd")
     private var loginText = ""
     private var passwordText = ""
     
@@ -115,6 +116,20 @@ class LogInViewController: UIViewController {
         }
     }
     
+    private lazy var incorrectAuthDataLabel: UILabel = {
+       var label = UILabel()
+        
+        label.text = ""
+        label.textColor = UIColor(hexString: "F04747")
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textAlignment = .center
+        label.numberOfLines = 2
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isHidden = true
+        
+        return label
+    }()
+    
     // кнопка logIn
     private lazy var logInButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
@@ -137,8 +152,29 @@ class LogInViewController: UIViewController {
     }()
     
     @objc private func logInButtonAction() {
-        //Если пользователь ввел пароль или логин
-        guard !loginText.isEmpty || !passwordText.isEmpty else { return }
+        //Если пользователь ввел пароль или логин правильно
+        guard loginText == defaultAccountData.0 && passwordText == defaultAccountData.1 else {
+            
+            textFieldsStackView.shake()
+            
+            if loginText.count < 3 || passwordText.count < 3 {
+                incorrectAuthDataLabel.isHidden = false
+                incorrectAuthDataLabel.text = "login and password must be at least 3 characters long"
+            } else if !loginText.isValidEmail {
+                incorrectAuthDataLabel.isHidden = false
+                incorrectAuthDataLabel.text = "email isn't valid"
+                }
+            else {
+                let alertController = UIAlertController(title: "Incorrect login or password", message: "try again", preferredStyle: .alert)
+                
+                let okAction = UIAlertAction(title: "OK", style: .default)
+                alertController.addAction(okAction)
+                
+                present(alertController,animated: true)
+            }
+                
+            return
+        }
             let profileViewController = ProfileViewController()
             self.navigationController?.pushViewController(profileViewController, animated: true)
         }
@@ -234,7 +270,7 @@ class LogInViewController: UIViewController {
         
         
         //layout остальных UI-элементов
-        [textFieldsStackView,logoImageView,logInButton].forEach({ contentView.addSubview($0) })
+        [textFieldsStackView,logoImageView,logInButton,incorrectAuthDataLabel].forEach({ contentView.addSubview($0) })
         [loginTextField,separatorStackView,passwordTextField].forEach({ textFieldsStackView.addArrangedSubview($0) })
         
         NSLayoutConstraint.activate([
@@ -255,8 +291,12 @@ class LogInViewController: UIViewController {
             logInButton.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 16),
             logInButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,constant: -16),
             logInButton.heightAnchor.constraint(equalToConstant: 50),
-            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+            logInButton.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             
+            incorrectAuthDataLabel.leadingAnchor.constraint(equalTo: logInButton.leadingAnchor),
+            incorrectAuthDataLabel.trailingAnchor.constraint(equalTo: logInButton.trailingAnchor),
+            incorrectAuthDataLabel.topAnchor.constraint(equalTo: logInButton.bottomAnchor, constant: 16),
+            incorrectAuthDataLabel.heightAnchor.constraint(equalToConstant: 50)
             
         ])
         
@@ -264,6 +304,9 @@ class LogInViewController: UIViewController {
 }
 
 extension LogInViewController: UITextFieldDelegate {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        incorrectAuthDataLabel.isHidden = true
+    }
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
